@@ -39,12 +39,28 @@ print "<br>";
 
 
 print "3.<br>";
+$i = 0;
+$stateData = array();
+
 foreach($populationData as $key => $value){
     $key = substr($key, -2, 2);
     print $key.": ".$value."<br>";
-
-        
+    $stateData += array($i => array($key, $value));
+       ++$i; 
 }
+
+var_dump($stateData);
+
+$j=0;
+foreach($stateData as $key => $value){
+    print $key[$j];
+    if ($key[$j][0] == $key[$j+1][0]){
+         $value[$j+1][1] += $value[$j][1];
+
+}
+print $value[$j][0].$value[$j][1];
+++$j;
+ }
 
 
 print "total: ".$totalValue."<br><br>";
