@@ -53,13 +53,16 @@ var_dump($stateData);
 
 $j=0;
 foreach($stateData as $key => $value){
-    print $key[$j];
-    if ($key[$j][0] == $key[$j+1][0]){
-         $value[$j+1][1] += $value[$j][1];
+    var_dump($stateData[$key][0]);
+    if($key != 0){
 
-}
-print $value[$j][0].$value[$j][1];
-++$j;
+      if ($stateData[$key][0] == $stateData[$key-1][0]){
+        // $value[$j+1][1] += $value[$j][1];
+print "同じ";
+      }
+} 
+//print $value[$j][0].$value[$j][1];
+++$j; 
  }
 
 
