@@ -44,7 +44,7 @@ $(function() {
 				insert += '</p>';
                 
 				// リンク先の挿入
-				insert += '<a href="' + thisItem.children('link').text() + '">詳細はこちら</a>';
+				insert += '<a href="' + thisItem.children('id').text() + '">詳細はこちら</a>';
 
 				insert += '</li>';
 			};
