@@ -1,4 +1,30 @@
 $(function() {
+  var h = $(window).height();
+ 
+  $('#contents').css('display','none');
+  $('#loader-bg ,#loader').height(h).css('display','block');
+});
+ 
+$(window).load(function () { //全ての読み込みが完了したら実行
+  $('#loader-bg').delay(900).fadeOut(800);
+  $('#loader').delay(600).fadeOut(300);
+  $('#contents').css('display', 'block');
+});
+ 
+//10秒たったら強制的にロード画面を非表示
+$(function(){
+  setTimeout('stopload()',10000);
+});
+ 
+function stopload(){
+  $('#contents').css('display','block');
+  $('#loader-bg').delay(1000).fadeOut(900);
+  $('#loader').delay(600).fadeOut(300);
+}
+
+
+
+$(function() {
 	$.ajax({
 		url: 'rss.php',
 		dataType: 'xml',
@@ -50,7 +76,10 @@ $(function() {
 			};
 			insert += '</ul>';
 
-			$('#sample').append(insert);
-		}
+			$('#contents').append(insert);
+		},
+        error: function () {
+            alert("読み込み失敗");
+        }
 	});
 });

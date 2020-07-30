@@ -1,14 +1,22 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src='rss.js'></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src='rss.js'></script>
+    <link rel="stylesheet" href="rss.css">
 </head>
     
-<body>
-<h1>RSSフィード表示サンプル</h1>
-<div id="sample"></div>
+<body><!--
+<h1>RSSフィード表示サンプル</h1>-->
+<div id="loader-bg">
+    <div id="loader">
+    <img src="load.gif" width="80" height="80" alt="Loading..." />
+    <p>読み込み中...</p>
+    </div>
+</div>
+
+<div id="contents"></div>
+
 </body>
     
 </html>
