@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>東京ドーム何個分？</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.6.1/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+.calculation-box {
+height: 75px;
+width: 200px;
+position: absolute;
+bottom: 40px;
+left: 10px;
+background-color: rgba(255, 255, 255, 0.9);
+padding: 15px;
+text-align: center;
+}
+ 
+p {
+font-family: 'Open Sans';
+margin: 0;
+font-size: 13px;
+}
+</style>
+ 
+<script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.js"></script>
+<link
+rel="stylesheet"
+href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.9/mapbox-gl-draw.css"
+type="text/css"
+/>
+<div id="map"></div>
+<div class="calculation-box">
+<p>計測したい場所を選択してね！</p>
+<div id="calculated-area"></div>
+</div>
+ 
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoiMTNtdXJhdGEiLCJhIjoiY2s5cXcwampsMDNwazNmbXQxaWVzamE0NiJ9.wSyFabY45TKJhVRjnAStMQ';
+var map = new mapboxgl.Map({
+container: 'map', // container id
+style: 'mapbox://styles/mapbox/satellite-v9', //hosted style id
+center: [139.751919, 35.7056232], // starting position
+zoom: 16 // starting zoom
+});
+ 
+var draw = new MapboxDraw({
+displayControlsDefault: false,
+controls: {
+polygon: true,
+trash: true
+}
+});
+map.addControl(draw);
+ 
+map.on('draw.create', updateArea);
+map.on('draw.delete', updateArea);
+map.on('draw.update', updateArea);
+ 
+function updateArea(e) {
+var data = draw.getAll();
+var answer = document.getElementById('calculated-area');
+if (data.features.length > 0) {
+var area = turf.area(data);
+// restrict to area to 2 decimal points
+var tokyo_dome_num = Math.round((area/46755) * 100) / 100;
+answer.innerHTML =
+'<p><br>東京ドーム <strong>' +
+tokyo_dome_num +
+'</strong> 個分だよ</p>';
+} else {
+answer.innerHTML = '';
+if (e.type !== 'draw.delete')
+alert('Use the draw tools to draw a polygon!');
+}
+}
+</script>
+ 
+</body>
+</html>
