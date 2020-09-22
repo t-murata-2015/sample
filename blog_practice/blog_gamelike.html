@@ -57,6 +57,21 @@
             color: #fff;
             background: #ee8a65;
         }
+        #addBlogPost {
+            display: block;
+            position: fixed;
+            bottom: 20px;
+            left: 70%;
+            width: 20%;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            background: #9addfb;
+        }
 
     </style>
 
@@ -64,6 +79,7 @@
     <br />
     <button id="fly">Fly Away</button>
     <button id="getback">Get Back</button>
+    <button id="addBlogPost">Add Blog Post</button>
 
 
     <script>
@@ -216,6 +232,13 @@
 
         document.getElementById('getback').control;
 
+        
+        document.getElementById('addBlogPost').addEventListener('click', function() {
+
+            window.location.href = 'post.php';
+        
+        });
+                
     </script>
 </body>
 
