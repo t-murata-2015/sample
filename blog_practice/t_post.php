@@ -18,6 +18,7 @@
     <p>本文</p>
     <p><textarea name="content" rows="8" cols="40"><?php echo $content ?></textarea></p>
     <p><input name="submit" type="submit" value="投稿"></p>
+    <p><br><button type="button" onclick="history.back()">戻る</button></p>
     <p><?php echo $error ?></p>
   </div>
 </form>
