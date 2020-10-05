@@ -152,10 +152,14 @@
             map.getCanvas().control;
         });
 
+        var posts = <?php echo $posts; ?>;
+        
+        var text = "<h3>" + posts[0]['title'] + "</h3><p>" + posts[0]['content'] + "</p>";
+        console.log(posts);
         var chapters = {
             'tokyo': {
                 center: [139.7673068, 35.6809591],
-                content: '<h3>東京駅</h3><p>どの企業もリモートワークしているので、人が少ないですね。</p>'
+                content: text
             },
             'shinjuku': {
                 center: [139.70025799999996, 35.690921],
