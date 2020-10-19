@@ -163,19 +163,30 @@
 
     
             
-            var chapters = new Array(Object.keys(posts));
+            var chapters = new Array(0,1,2,3);
             
             var i = 0;
             for(var i = 0;i <= Object.keys(posts);++i){
                 chapters = {
-                    i:{
+                    'place':{
                         center: [posts[i]['lat'], posts[i]['lng']],
                         content: "<h3>" + posts[i]['title'] + "</h3><p>" + posts[i]['content'] + "</p>"
                     }
                 }
                 
+        console.log("aaaa");        
+                   var popup = new mapboxgl.Popup({
+                closeOnClick: false,
+                closeButton: false
+            })
+        .setLngLat(chapters['place']['center'])
+        .setHTML(chapters['place']['content'])
+        .addTo(map);
             }
-        console.log(chapters);
+        
+        
+        
+        
         
         /*
         
@@ -201,16 +212,16 @@
         };
 */
                 
-        for (var j = 0; j < (i-1); ++j) {
+       /* for (var j = 0; j < (i-1); ++j) {
         var popup = new mapboxgl.Popup({
                 closeOnClick: false,
                 closeButton: false
             })
-        .setLngLat(chapters.j.center)
-        .setHTML(chapters.j.content)
+        .setLngLat(chapters.0.center)
+        .setHTML(chapters.0.content)
         .addTo(map);
         
-        }
+        }*/
 
 
 
