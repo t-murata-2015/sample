@@ -155,11 +155,38 @@
         var posts = <?php echo $posts; ?>;
         
         var text = "<h3>" + posts[0]['title'] + "</h3><p>" + posts[0]['content'] + "</p>";
-        console.log(posts);
+        
+        
+        
+        
+        console.log(posts[0]['lat']);
+
+    
+            
+            var chapters = new Array(Object.keys(posts));
+            
+            var i = 0;
+            for(var i = 0;i <= Object.keys(posts);++i){
+                chapters = {
+                    i:{
+                        center: [posts[i]['lat'], posts[i]['lng']],
+                        content: "<h3>" + posts[i]['title'] + "</h3><p>" + posts[i]['content'] + "</p>"
+                    }
+                }
+                
+            }
+        console.log(chapters);
+        
+        /*
+        
+        
         var chapters = {
+            
+           
+            
             'tokyo': {
                 center: [139.7673068, 35.6809591],
-                content: text
+                content: "<h3>" + posts['title'] + "</h3><p>" + posts['content'] + "</p>"
             },
             'shinjuku': {
                 center: [139.70025799999996, 35.690921],
@@ -170,32 +197,22 @@
                 center: [139.70378200000005, 35.712285],
                 content: '<h3>高田馬場駅</h3><p>ラーメン屋や油そば屋がたくさんあるが、店名はそのままで運営している人が変わっている。毎週食べていたあの味がもうないと思うとかなしいですね。</p>'
 
-            }
+            },
         };
-
+*/
+                
+        for (var j = 0; j < (i-1); ++j) {
         var popup = new mapboxgl.Popup({
                 closeOnClick: false,
                 closeButton: false
             })
-            .setLngLat(chapters.takadanobaba.center)
-            .setHTML(chapters.takadanobaba.content)
-            .addTo(map);
+        .setLngLat(chapters.j.center)
+        .setHTML(chapters.j.content)
+        .addTo(map);
+        
+        }
 
-        var popup = new mapboxgl.Popup({
-                closeOnClick: false,
-                closeButton: false
-            })
-            .setLngLat(chapters.shinjuku.center)
-            .setHTML(chapters.shinjuku.content)
-            .addTo(map);
 
-        var popup = new mapboxgl.Popup({
-                closeOnClick: false,
-                closeButton: false
-            })
-            .setLngLat(chapters.tokyo.center)
-            .setHTML(chapters.tokyo.content)
-            .addTo(map);
 
 
         document.getElementById('fly').addEventListener('click', function() {

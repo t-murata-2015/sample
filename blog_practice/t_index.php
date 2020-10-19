@@ -28,7 +28,7 @@
     <?php } ?>
     <div class="post">
         <br>
-        <p><button type="button" onclick="location.href='http://localhost/sample/blog_practice/blog_gamelike.html'">マップ画面</button></p>
+        <p><button type="button" onclick="location.href='http://localhost/sample/blog_practice/blog_gamelike.php'">マップ画面</button></p>
         <p><br><button type="button" onclick="location.href='http://localhost/sample/blog_practice/post.php'">入力画面</button></p>
     </div>
 </body>
