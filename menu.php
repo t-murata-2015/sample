@@ -8,6 +8,23 @@ $karaage = new karaage('からあげ', 300, 'マヨネーズ');
 $chicken = new chicken('チキン南蛮', 580);
 $curry = new curry('カレー', 950);
 
+require_once 'ListDisplay.class.php';
+require_once 'TableDisplay.class.php';
+
+  $data = array($karaage->getName(),
+                  $chicken->getName(),
+                  $curry->getName()
+               );
+
+$display1 = new ListDisplay($data);
+$display2 = new TableDisplay($data);
+
+$display1->display();
+echo '<hr>';
+$display2->display();
+echo '<br>';
+
+
 $menus = array($karaage, $chicken, $curry);
 ?>
 
