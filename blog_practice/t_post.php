@@ -21,8 +21,8 @@
             <p><textarea name="content" rows="8" cols="40"><?php echo $content ?></textarea></p>
             <p><input name="submit" type="submit" value="投稿"></p>
             <p><br><?php echo $error ?></p>
-            <p><br><button type="button" onclick="location.href='http://localhost/sample/blog_practice/blog_gamelike.php'">マップ画面</button></p>
-            <p><br><button type="button" onclick="location.href='http://localhost/sample/blog_practice/index.php'">記事一覧</button></p>
+            <p><br><button type="button" onclick="location.href='http://localhost/samples/blog_practice/blog_gamelike.php'">マップ画面</button></p>
+            <p><br><button type="button" onclick="location.href='http://localhost/samples/blog_practice/index.php'">記事一覧</button></p>
         </div>
     </form>
 </body>
