@@ -1,5 +1,6 @@
 <?php
-  $error = $title = $content = '';
+
+$error = $title = $content = $lat = $lng = '';
   if (@$_POST['submit']) {
     $title = $_POST['title'];
     $content = $_POST['content'];
